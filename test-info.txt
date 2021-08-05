@@ -1,0 +1,18 @@
+
+
+Database: dreamztechnology.sql		>>> http://localhost/phpmyadmin/
+ »Table: studentsform
+
+
+
+URL: 
+	1. http://localhost/ci4CRUD/					or
+	2. http://localhost/ci4CRUD/StudentController/index
+
+
+Task Completed:	Admin
+	1) List of Students.
+	2) Created/Inserted record of Students 
+	3) Updated Students record 
+	4) Updated Students record 
+

@@ -61,11 +61,13 @@
 				<tr>
 					<th>Id</th>
 					<th>Name</th>
+					<th>DOB</th>
+					<th>DOJ</th>
 					<th>Email</th>
 					<th>Mobile</th>
-					<th>Address</th>
-					<th>Action</th>
-					<th>View as PDF</th>
+					<th width="100">Address</th>
+					<th align="centre">Action</th>
+					<!-- <th>View as PDF</th> -->
 				</tr>
 				
 					<?php
@@ -74,16 +76,18 @@
 					<tr>		
 							<td><?php echo $student['id']; ?></td>
 							<td><?php echo $student['name']; ?></td>
+							<td><?php echo $student['dob']; ?></td>
+							<td><?php echo $student['doj']; ?></td>
 							<td><?php echo $student['email']; ?></td>
 							<td><?php echo $student['mobile']; ?></td>
 							<td><?php echo $student['address']; ?></td>
 							<td>
-								<a href="<?php echo base_url('StudentController/edit/'.$student['id']); ?>" class="btn btn-success">Edit</a>
+								<a href="<?php echo base_url('StudentController/edit/'.$student['id']); ?>" class="btn btn-success btn-sm">Edit</a>
 								
-								<a onclick="deleteConfirm(<?php echo $student['id'] ?>)" href="#" class="btn btn-danger">Delete</a>
+								<a onclick="deleteConfirm(<?php echo $student['id'] ?>)" href="#" class="btn btn-danger btn-sm">Delete</a>
 								<!-- <a href="<?php //echo base_url('StudentController/delete/'.$student['id']); ?>" class="btn btn-danger">Delete</a> -->
 							</td>
-							<td><a href="<?php echo base_url('StudentController/htmlToPDF/'.$student['id']); ?>" class="btn btn-primary">View in pdf</a></td>   
+							<!-- <td><a href="<?php //echo base_url('StudentController/htmlToPDF/'.$student['id']); ?>" class="btn btn-primary">View in pdf</a></td>    -->
 					</tr>
 					<?php
 						}

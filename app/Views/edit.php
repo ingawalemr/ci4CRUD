@@ -39,6 +39,25 @@
 			        ?> 
 	    		</div><br>
 	    		<div class="form-gorup">
+	    			<label>Date of Birth</label>
+	    			<input type="date" name="dob" value="<?php echo set_value('dob', $student['dob']);?>" class="form-control  <?php echo (isset($validation) && $validation->hasError('dob')) ? 'is-invalid' : '' ?>">
+	    			<?php 	//print_r($validation);
+			            if (isset($validation) && $validation->hasError('dob')) {
+			                echo "<p class='invalid-feedback'>".$validation->getError('dob')."</p>";
+			            }
+			        ?> 
+	    		</div><br>
+
+	    		<div class="form-gorup">
+	    			<label>Date of Joining</label>
+	    			<input type="date" name="doj" value="<?php echo set_value('doj', $student['doj']);?>" class="form-control  <?php echo (isset($validation) && $validation->hasError('doj')) ? 'is-invalid' : '' ?>">
+	    			<?php 	//print_r($validation);
+			            if (isset($validation) && $validation->hasError('doj')) {
+			                echo "<p class='invalid-feedback'>".$validation->getError('doj')."</p>";
+			            }
+			        ?> 
+	    		</div><br>
+	    		<div class="form-gorup">
 	    			<label>Email</label>
 	    			<input type="email" name="email" value="<?php echo set_value('email', $student['email']);?>" class="form-control <?php echo (isset($validation) && $validation->hasError('email')) ? 'is-invalid' : '' ?>">
 	    			<?php 	//print_r($validation);

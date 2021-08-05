@@ -23,6 +23,8 @@ class StudentController extends BaseController
 			$input = $this->validate([
 				# code validation 
 				'name' => 'trim|required',
+				'dob' => 'trim|required',
+				'doj' => 'trim|required',
 				'email' => 'trim|required|valid_email',
 				'mobile' => 'trim|required|numeric|max_length[10]|min_length[10]',
 			]);
@@ -32,6 +34,8 @@ class StudentController extends BaseController
 				$model = new StudentsModel;
 				$model->save([
 						'name' => $this->request->getPost('name'),
+						'dob' => $this->request->getPost('dob'),
+						'doj' => $this->request->getPost('doj'),
 						'email' => $this->request->getPost('email'),
 						'mobile' => $this->request->getPost('mobile'),
 						'address' => $this->request->getPost('address'),
@@ -65,6 +69,8 @@ class StudentController extends BaseController
 			$input = $this->validate([
 				# code validation 
 				'name' => 'trim|required',
+				'dob' => 'trim|required',
+				'doj' => 'trim|required',
 				'email' => 'trim|required|valid_email',
 				'mobile' => 'trim|required|numeric|max_length[10]|min_length[10]',
 			]);
@@ -74,12 +80,15 @@ class StudentController extends BaseController
 				$model = new StudentsModel;
 				$model->update($id, [
 						'name' => $this->request->getPost('name'),
+						'dob' => $this->request->getPost('dob'),
+						'doj' => $this->request->getPost('doj'),
+						'email' => $this->request->getPost('email'),
 						'email' => $this->request->getPost('email'),
 						'mobile' => $this->request->getPost('mobile'),
 						'address' => $this->request->getPost('address'),
 						]);
 
-				$session->setFlashdata('success', 'Record is Updated successfully');
+				$session->setFlashdata('success', 'Record Updated successfully');
 				return redirect()->to('/StudentController/index');
 
 			} else {
@@ -107,16 +116,16 @@ class StudentController extends BaseController
 		return redirect()->to('/StudentController/index');
 	}
 
-	public function htmlToPDF()
-	{
-         $data=array();
-        $model = new StudentsModel;
-		$data['students'] = $model->where('id', $id)->first();
-		$dompdf = new \Dompdf\Dompdf();
-        $dompdf->loadHtml(view('pdffile', $data));
-        $dompdf->setPaper('A4', 'landscape');
-        $dompdf->render();
-        $dompdf->stream();
+	// public function htmlToPDF()
+	// {
+ //         $data=array();
+ //        $model = new StudentsModel;
+	// 	$data['students'] = $model->where('id', $id)->first();
+	// 	$dompdf = new \Dompdf\Dompdf();
+ //        $dompdf->loadHtml(view('pdffile', $data));
+ //        $dompdf->setPaper('A4', 'landscape');
+ //        $dompdf->render();
+ //        $dompdf->stream();
        
-    }   
+ //    }   
 }
